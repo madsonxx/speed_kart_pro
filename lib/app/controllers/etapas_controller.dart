@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:speed_kart_pro/modulos/etapa.dart';
+import 'package:speed_kart_pro/app/modulos/etapa.dart';
 
 class EtapaController extends GetxController {
   RxList<Etapa> etapasInfo = RxList<Etapa>([]);

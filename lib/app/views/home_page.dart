@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import 'package:speed_kart_pro/controllers/etapas_controller.dart';
-import 'package:speed_kart_pro/modulos/etapa.dart';
+import 'package:speed_kart_pro/app/controllers/etapas_controller.dart';
+import 'package:speed_kart_pro/app/modulos/etapa.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});

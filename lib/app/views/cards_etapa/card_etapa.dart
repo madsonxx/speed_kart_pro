@@ -24,7 +24,7 @@ class CardEtapa extends StatelessWidget {
           body: Container(
             decoration: const BoxDecoration(),
             height: size.height,
-            child: const Column(children: [
+            child: Column(children: [
               TabBar(
                 tabs: [
                   Tab(

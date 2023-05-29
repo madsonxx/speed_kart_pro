@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:speed_kart_pro/modulos/pilotos.dart';
-import 'package:speed_kart_pro/src/components/custom_text_field.dart';
+import 'package:speed_kart_pro/app/components/custom_text_field.dart';
+import 'package:speed_kart_pro/app/modulos/pilotos.dart';
 
 import '../controllers/pilotos_controller.dart';
 

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:speed_kart_pro/controllers/corridas_controller.dart';
-import 'package:speed_kart_pro/controllers/etapas_controller.dart';
-import 'package:speed_kart_pro/controllers/pilotos_controller.dart';
+import 'package:speed_kart_pro/app/controllers/corridas_controller.dart';
+import 'package:speed_kart_pro/app/controllers/etapas_controller.dart';
+import 'package:speed_kart_pro/app/controllers/pilotos_controller.dart';
 
 class FirstTab extends StatelessWidget {
   const FirstTab({super.key});

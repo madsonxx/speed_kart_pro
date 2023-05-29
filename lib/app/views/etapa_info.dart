@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:speed_kart_pro/controllers/pilotos_controller.dart';
 
 import '../controllers/etapas_controller.dart';
 import '../modulos/etapa.dart';

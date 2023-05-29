@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
+import 'package:speed_kart_pro/app/views/add_etapa.dart';
+import 'package:speed_kart_pro/app/views/add_etapa_graduados.dart';
+import 'package:speed_kart_pro/app/views/add_pilotos.dart';
+import 'package:speed_kart_pro/app/views/cards_etapa/Corrida/card_corrida.dart';
+import 'package:speed_kart_pro/app/views/cards_etapa/card_etapa.dart';
+import 'package:speed_kart_pro/app/views/classification_screen.dart';
+import 'package:speed_kart_pro/app/views/home_page.dart';
 import 'package:speed_kart_pro/races_screen.dart';
-import 'package:speed_kart_pro/views/add_etapa.dart';
-import 'package:speed_kart_pro/views/add_etapa_graduados.dart';
-import 'package:speed_kart_pro/views/add_pilotos.dart';
-import 'package:speed_kart_pro/views/cards_etapa/Corrida/card_corrida.dart';
-
-import 'package:speed_kart_pro/views/cards_etapa/card_etapa.dart';
-import 'package:speed_kart_pro/views/classification_screen.dart';
-import 'package:speed_kart_pro/views/home_page.dart';
 
 void main() {
   runApp(const MyApp());

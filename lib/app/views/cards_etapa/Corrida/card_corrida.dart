@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:speed_kart_pro/controllers/pilotos_controller.dart';
+import 'package:speed_kart_pro/app/controllers/pilotos_controller.dart';
 
 class RaceCard extends StatelessWidget {
   const RaceCard({super.key});

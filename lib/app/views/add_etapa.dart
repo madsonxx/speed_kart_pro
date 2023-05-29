@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:speed_kart_pro/controllers/etapas_controller.dart';
-
+import 'package:speed_kart_pro/app/components/custom_text_field.dart';
+import 'package:speed_kart_pro/app/controllers/etapas_controller.dart';
 import '../controllers/pilotos_controller.dart';
-import '../src/components/custom_text_field.dart';
 
 class AddEtapa extends StatefulWidget {
   const AddEtapa({super.key});
