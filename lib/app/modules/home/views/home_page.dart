@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:speed_kart_pro/app/modules/home/controllers/etapas_controller.dart';
 import 'package:speed_kart_pro/app/modules/etapa.dart';
 import 'package:speed_kart_pro/app/modules/etapas/views/etapa_info.dart';
+import 'package:speed_kart_pro/app/modules/routes/app_pages.dart';
 
 class HomeScreen extends GetView<EtapaController> {
   const HomeScreen({super.key});
@@ -44,7 +45,7 @@ class HomeScreen extends GetView<EtapaController> {
                             color: Colors.red.shade700),
                         child: ListTile(
                           onTap: () {
-                            Get.toNamed('/cardEtapa', arguments: {
+                            Get.toNamed(AppPages.cardEtapa, arguments: {
                               'numeroEtapa':
                                   '${controller.etapasInfo[index].etapaNumero}',
                               'numeroMaster': '${controller.nMaster}',

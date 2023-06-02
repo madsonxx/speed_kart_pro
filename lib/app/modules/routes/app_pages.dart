@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:speed_kart_pro/app/modules/etapas/views/card_etapa.dart';
 import 'package:speed_kart_pro/app/modules/home/bindings/etapas_bindings.dart';
 import 'package:speed_kart_pro/app/modules/home/bindings/home_bindings.dart';
 import 'package:speed_kart_pro/app/modules/home/views/add_etapa.dart';
@@ -15,6 +16,7 @@ class AppPages {
   static const homeRoute = Routes.HOME;
   static const addEtapa = Routes.ADDETAPA;
   static const addMaster = Routes.ADDMASTER;
+  static const cardEtapa = Routes.CARDEPETA;
 
   static final routes = [
     GetPage(
@@ -27,7 +29,7 @@ class AppPages {
         binding: Etapabinding()),
     GetPage(name: _Paths.ADDMASTER, page: () => const AddPilotos()),
     GetPage(name: '/addGraduados', page: () => const EtapaGraduados()),
-    //GetPage(name: '/cardEtapa', page: () => const CardEtapa()),
+    GetPage(name: _Paths.CARDETAPA, page: () => const CardEtapa()),
     GetPage(name: '/cardRace', page: () => const RaceCard()),
   ];
 }
