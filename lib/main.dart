@@ -1,13 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:speed_kart_pro/app/modules/home/views/add_etapa.dart';
-import 'package:speed_kart_pro/app/modules/home/views/add_etapa_graduados.dart';
-import 'package:speed_kart_pro/app/modules/home/views/add_pilotos.dart';
-import 'package:speed_kart_pro/app/modules/races/card_corrida.dart';
-import 'package:speed_kart_pro/app/views/cards_etapa/card_etapa.dart';
-import 'package:speed_kart_pro/app/views/classification_screen.dart';
-import 'package:speed_kart_pro/app/modules/home/views/home_page.dart';
-import 'package:speed_kart_pro/races_screen.dart';
+
+import 'package:speed_kart_pro/app/modules/routes/app_pages.dart';
 
 void main() {
   runApp(const MyApp());
@@ -28,18 +22,9 @@ class MyApp extends StatelessWidget {
               BottomSheetThemeData(backgroundColor: Colors.transparent)),
       title: 'Speed Kart Fight',
       debugShowCheckedModeBanner: false,
-      initialRoute: '/paginaInicial',
+      initialRoute: AppPages.homeRoute,
       color: Colors.black,
-      getPages: [
-        GetPage(name: '/paginaInicial', page: () => const HomeScreen()),
-        GetPage(name: '/pagina1', page: () => const RaceScreen()),
-        GetPage(name: '/pagina2', page: () => const Classification()),
-        GetPage(name: '/addEtapa', page: () => const AddEtapa()),
-        GetPage(name: '/addMaster', page: () => const AddPilotos()),
-        GetPage(name: '/addGraduados', page: () => const EtapaGraduados()),
-        GetPage(name: '/cardEtapa', page: () => const CardEtapa()),
-        GetPage(name: '/cardRace', page: () => const RaceCard()),
-      ],
+      getPages: AppPages.routes,
     );
   }
 }

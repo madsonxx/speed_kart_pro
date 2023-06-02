@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 
 import '../modules/pilotos.dart';
 
-class PilotosController {
+class PilotosController extends GetxController {
   RxList<Pilotos> listaPilotosGraduados = RxList<Pilotos>();
   RxList<Pilotos> listaPilotosMaster = RxList<Pilotos>();
   RxList<Pilotos> listaEtapaGraduados = RxList<Pilotos>();

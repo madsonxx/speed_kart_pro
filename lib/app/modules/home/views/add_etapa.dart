@@ -2,16 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:speed_kart_pro/app/components/custom_text_field.dart';
 import 'package:speed_kart_pro/app/modules/home/controllers/etapas_controller.dart';
+import 'package:speed_kart_pro/app/modules/routes/app_pages.dart';
 import '../../../controllers/pilotos_controller.dart';
 
-class AddEtapa extends StatefulWidget {
+class AddEtapa extends GetView<EtapaController> {
   const AddEtapa({super.key});
 
-  @override
-  State<AddEtapa> createState() => _AddEtapaState();
-}
-
-class _AddEtapaState extends State<AddEtapa> {
   //final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
 /*   Future<void> showInformationDialog(BuildContext context) async {
@@ -50,9 +46,6 @@ class _AddEtapaState extends State<AddEtapa> {
 
   @override
   Widget build(BuildContext context) {
-    final etapaCtrl = Get.put(EtapaController());
-    final pilotoCtrl = Get.put(PilotosController());
-
     return Scaffold(
       appBar: AppBar(
         title: const Text('Adicionar Etapa'),
@@ -66,7 +59,7 @@ class _AddEtapaState extends State<AddEtapa> {
             ),
             const SizedBox(height: 15),
             CustomTextField(
-              controllerTexto: etapaCtrl.numeroEtapaController,
+              controllerTexto: controller.numeroEtapaController,
               dicaText: 'Numero etapa',
               label: 'Numero etapa',
               tipoTexto: TextInputType.number,
@@ -77,7 +70,7 @@ class _AddEtapaState extends State<AddEtapa> {
             CustomTextField(
                 dicaText: 'Data Etapa',
                 tipoTexto: TextInputType.datetime,
-                controllerTexto: etapaCtrl.dataEtapaController,
+                controllerTexto: controller.dataEtapaController,
                 label: 'Data Etapa',
                 icon: Icons.calendar_month_outlined),
 
@@ -85,7 +78,7 @@ class _AddEtapaState extends State<AddEtapa> {
             CustomTextField(
                 dicaText: 'Master',
                 tipoTexto: TextInputType.datetime,
-                controllerTexto: etapaCtrl.numeroMasterController,
+                controllerTexto: controller.numeroMasterController,
                 label: 'Nº Baterias Master',
                 icon: Icons.people),
 
@@ -93,7 +86,7 @@ class _AddEtapaState extends State<AddEtapa> {
             CustomTextField(
                 dicaText: 'Graduados',
                 tipoTexto: TextInputType.datetime,
-                controllerTexto: etapaCtrl.numeroGraduadosController,
+                controllerTexto: controller.numeroGraduadosController,
                 label: 'Nº Baterias Graduados',
                 icon: Icons.people),
 
@@ -105,13 +98,12 @@ class _AddEtapaState extends State<AddEtapa> {
                   style: TextStyle(color: Colors.white),
                 ),
                 onPressed: () {
-                  etapaCtrl.addEtapa(
-                      etapaCtrl.numeroEtapaController.text,
-                      etapaCtrl.dataEtapaController.text,
-                      etapaCtrl.numeroMasterController.text,
-                      etapaCtrl.numeroGraduadosController.text);
-                  Get.toNamed('/addMaster');
-                  pilotoCtrl.clear();
+                  controller.addEtapa(
+                      controller.numeroEtapaController.text,
+                      controller.dataEtapaController.text,
+                      controller.numeroMasterController.text,
+                      controller.numeroGraduadosController.text);
+                  Get.toNamed(AppPages.addMaster);
                 }
                 /* () async {
                 await showInformationDialog(context);

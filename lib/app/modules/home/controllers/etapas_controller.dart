@@ -32,8 +32,11 @@ class EtapaController extends GetxController {
     nMaster.value = int.parse(numeroMaster);
     nGraduados.value = int.parse(numeroGraduados);
     existeEtapa.value = true;
+
     numeroEtapaController.clear();
     dataEtapaController.clear();
+    numeroMasterController.clear();
+    numeroGraduadosController.clear();
   }
 
   void removerEtapa(int index) {

@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:speed_kart_pro/app/components/custom_text_field.dart';
-import 'package:speed_kart_pro/app/modulos/pilotos.dart';
+import 'package:speed_kart_pro/app/modules/pilotos.dart';
 
-import '../controllers/pilotos_controller.dart';
+import '../../../controllers/pilotos_controller.dart';
 
-class AddPilotos extends StatelessWidget {
+class AddPilotos extends GetWidget<PilotosController> {
   const AddPilotos({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final pilotoCtrl = Get.put(PilotosController());
+    //final pilotoCtrl = Get.put(PilotosController());
     final size = MediaQuery.of(context).size;
-    List<Pilotos> lista = [];
+    //List<Pilotos> lista = [];
 
     return Scaffold(
       resizeToAvoidBottomInset: false,
@@ -37,7 +37,7 @@ class AddPilotos extends StatelessWidget {
                 Expanded(
                     child: CustomTextField(
                         dicaText: 'Nomes',
-                        controllerTexto: pilotoCtrl.nomesMaster,
+                        controllerTexto: controller.nomesMaster,
                         label: 'Adicionar Nomes',
                         icon: Icons.person)),
                 Padding(
@@ -52,11 +52,9 @@ class AddPilotos extends StatelessWidget {
                           border: Border.all(width: 0.5, color: Colors.white)),
                       child: IconButton(
                         onPressed: () {
-                          if (pilotoCtrl.nomesMaster.text.isNotEmpty) {
-                            pilotoCtrl
-                                .addPilotosMaster(pilotoCtrl.nomesMaster.text);
-                            lista = pilotoCtrl.listaPilotosMaster;
-                            print(lista);
+                          if (controller.nomesMaster.text.isNotEmpty) {
+                            controller
+                                .addPilotosMaster(controller.nomesMaster.text);
                           }
                         },
                         icon: const Icon(Icons.add),
@@ -71,10 +69,10 @@ class AddPilotos extends StatelessWidget {
               () => ListView.builder(
                 scrollDirection: Axis.vertical,
                 shrinkWrap: true,
-                itemCount: pilotoCtrl.listaPilotosMaster.length,
+                itemCount: controller.listaPilotosMaster.length,
                 itemBuilder: (context, index) {
                   return ListTile(
-                    title: Text(pilotoCtrl.listaPilotosMaster[index].nome),
+                    title: Text(controller.listaPilotosMaster[index].nome),
                   );
                 },
               ),
@@ -98,7 +96,7 @@ class AddPilotos extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Get.toNamed('/addGraduados', arguments: {
-            'listaNomesMaster': lista,
+            'listaNomesMaster': controller.listaPilotosMaster,
           });
           print(Get.arguments['listaNomeMaster']);
         },
