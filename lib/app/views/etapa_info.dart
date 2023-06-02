@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../controllers/etapas_controller.dart';
-import '../modulos/etapa.dart';
+import '../modules/home/controllers/etapas_controller.dart';
+import '../modules/etapa.dart';
 
 class EtapaInfo extends StatefulWidget {
   EtapaInfo({super.key});

@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:speed_kart_pro/controllers/corridas_controller.dart';
-import 'package:speed_kart_pro/controllers/pilotos_controller.dart';
-import 'package:speed_kart_pro/views/cards_etapa/tabs/first_tab.dart';
-import 'package:speed_kart_pro/views/cards_etapa/tabs/second_tab.dart';
+import 'package:speed_kart_pro/app/modules/races/views/first_tab.dart';
+import 'package:speed_kart_pro/app/modules/races/views/second_tab.dart';
 
 class CardEtapa extends StatelessWidget {
   const CardEtapa({super.key});

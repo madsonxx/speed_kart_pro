@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:speed_kart_pro/app/views/add_etapa.dart';
-import 'package:speed_kart_pro/app/views/add_etapa_graduados.dart';
-import 'package:speed_kart_pro/app/views/add_pilotos.dart';
-import 'package:speed_kart_pro/app/views/cards_etapa/Corrida/card_corrida.dart';
+import 'package:speed_kart_pro/app/modules/home/views/add_etapa.dart';
+import 'package:speed_kart_pro/app/modules/home/views/add_etapa_graduados.dart';
+import 'package:speed_kart_pro/app/modules/home/views/add_pilotos.dart';
+import 'package:speed_kart_pro/app/modules/races/card_corrida.dart';
 import 'package:speed_kart_pro/app/views/cards_etapa/card_etapa.dart';
 import 'package:speed_kart_pro/app/views/classification_screen.dart';
-import 'package:speed_kart_pro/app/views/home_page.dart';
+import 'package:speed_kart_pro/app/modules/home/views/home_page.dart';
 import 'package:speed_kart_pro/races_screen.dart';
 
 void main() {
@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
           ),
           bottomSheetTheme:
               BottomSheetThemeData(backgroundColor: Colors.transparent)),
-      title: 'Flutter Demo',
+      title: 'Speed Kart Fight',
       debugShowCheckedModeBanner: false,
       initialRoute: '/paginaInicial',
       color: Colors.black,

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../modulos/pilotos.dart';
+import '../modules/pilotos.dart';
 
 class PilotosController {
   RxList<Pilotos> listaPilotosGraduados = RxList<Pilotos>();
