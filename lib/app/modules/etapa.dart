@@ -1,8 +1,8 @@
 class Etapa {
-  late String etapaNumero;
+  late int etapaNumero;
   late String data;
-  late String master;
-  late String graduados;
+  late int master;
+  late int graduados;
   late List<String> pilotos;
 
   Etapa(

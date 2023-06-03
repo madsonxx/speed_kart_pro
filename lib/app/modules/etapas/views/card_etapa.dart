@@ -19,8 +19,7 @@ class CardEtapa extends GetView<EtapaController> {
           backgroundColor: Colors.black,
           appBar: AppBar(
             backgroundColor: Colors.transparent,
-            title: Center(
-                child: Text('Etapa ${controller.indexCorrida.value + 1}')),
+            title: Center(child: Text('Etapa ${controller.indexEtapa}')),
           ),
           body: Container(
             decoration: const BoxDecoration(),

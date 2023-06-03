@@ -16,7 +16,7 @@ class FirstTab extends GetView<EtapaController> {
         Expanded(
             child: Obx(
           () => ListView.builder(
-            itemCount: EtapaController().nMaster.value,
+            itemCount: controller.nMaster.value,
             itemBuilder: ((context, index) {
               return Padding(
                 padding: const EdgeInsets.only(

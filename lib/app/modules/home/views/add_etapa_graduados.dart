@@ -17,6 +17,9 @@ class EtapaGraduados extends GetWidget<EtapaController> {
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         title: const Text('Pilotos Graduados'),
+        leading: BackButton(
+          onPressed: () => Get.back(),
+        ),
       ),
       body: SingleChildScrollView(
         child: SizedBox(

@@ -45,6 +45,7 @@ class HomeScreen extends GetView<EtapaController> {
                         child: ListTile(
                           onTap: () {
                             controller.updateIindex(index);
+                            //controller.findIndex(index);
                             Get.toNamed(AppPages.cardEtapa);
                           },
                           leading: const Icon(

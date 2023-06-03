@@ -22,7 +22,10 @@ class EtapaController extends GetxController {
   TextEditingController posController = TextEditingController();
 
   var existeEtapa = false.obs;
-  var indexCorrida = 0.obs;
+  //var indexCorrida = 0.obs;
+  int indexEtapa = 0;
+  //var indexEtapa = 0.obs;
+
   late Etapa etapas;
   var itemCount = 0.obs;
   var nMaster = 0.obs;
@@ -64,8 +67,8 @@ class EtapaController extends GetxController {
     etapa.value = pEtapa;
   }
  */
-  void addEtapa(String etapaNumber, String data, String numeroMaster,
-      String numeroGraduados) {
+  void addEtapa(
+      int etapaNumber, String data, int numeroMaster, int numeroGraduados) {
     etapas = Etapa(
         etapaNumero: etapaNumber,
         data: data,
@@ -73,8 +76,6 @@ class EtapaController extends GetxController {
         graduados: numeroGraduados);
     etapasInfo.add(etapas);
     itemCount.value = etapasInfo.length;
-    nMaster.value = int.parse(numeroMaster);
-    nGraduados.value = int.parse(numeroGraduados);
     existeEtapa.value = true;
 
     numeroEtapaController.clear();
@@ -94,9 +95,18 @@ class EtapaController extends GetxController {
   }
 
   void updateIindex(var cardID) {
-    indexCorrida.value = cardID;
+    indexEtapa = etapasInfo[cardID].etapaNumero;
+    nMaster.value = etapasInfo[cardID].master;
+    nGraduados.value = etapasInfo[cardID].graduados;
   }
+
+/*   void findIndex(int etapaID) {
+    indexCorrida.value =
+        etapasInfo.indexWhere((Etapa) => Etapa.etapaNumero == '$etapaID');
+    print(indexCorrida.value);
+  } */
 }
+
 
 
 /*   void mudarIdade(String data) {

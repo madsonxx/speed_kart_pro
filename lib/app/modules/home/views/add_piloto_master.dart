@@ -18,6 +18,9 @@ class AddPilotos extends GetWidget<EtapaController> {
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         title: const Text('Pilotos Master'),
+        leading: BackButton(
+          onPressed: () => Get.back(),
+        ),
       ),
       body: SingleChildScrollView(
         child: SizedBox(

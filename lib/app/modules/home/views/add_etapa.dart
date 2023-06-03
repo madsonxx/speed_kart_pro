@@ -48,6 +48,9 @@ class AddEtapa extends GetView<EtapaController> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Adicionar Etapa'),
+        leading: BackButton(
+          onPressed: () => Get.back(),
+        ),
       ),
       body: SafeArea(
         child: Center(
@@ -98,10 +101,10 @@ class AddEtapa extends GetView<EtapaController> {
                 ),
                 onPressed: () {
                   controller.addEtapa(
-                      controller.numeroEtapaController.text,
+                      int.parse(controller.numeroEtapaController.text),
                       controller.dataEtapaController.text,
-                      controller.numeroMasterController.text,
-                      controller.numeroGraduadosController.text);
+                      int.parse(controller.numeroMasterController.text),
+                      int.parse(controller.numeroGraduadosController.text));
                   Get.toNamed(AppPages.addMaster);
                 }
                 /* () async {
