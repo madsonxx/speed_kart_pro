@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:speed_kart_pro/app/components/custom_text_field.dart';
-import 'package:speed_kart_pro/app/modules/home/controllers/etapas_controller.dart';
+import 'package:speed_kart_pro/app/controllers/etapas_controller.dart';
 import 'package:speed_kart_pro/app/modules/routes/app_pages.dart';
 
 class AddEtapa extends GetView<EtapaController> {

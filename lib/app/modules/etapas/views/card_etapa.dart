@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:speed_kart_pro/app/controllers/pilotos_controller.dart';
-import 'package:speed_kart_pro/app/modules/home/controllers/etapas_controller.dart';
+
+import 'package:speed_kart_pro/app/controllers/etapas_controller.dart';
 import 'package:speed_kart_pro/app/modules/races/views/first_tab.dart';
 import 'package:speed_kart_pro/app/modules/races/views/second_tab.dart';
 
-class CardEtapa extends GetView<PilotosController> {
+class CardEtapa extends GetView<EtapaController> {
   const CardEtapa({super.key});
 
   @override
@@ -19,7 +19,8 @@ class CardEtapa extends GetView<PilotosController> {
           backgroundColor: Colors.black,
           appBar: AppBar(
             backgroundColor: Colors.transparent,
-            title: Center(child: Text('Etapa')),
+            title: Center(
+                child: Text('Etapa ${controller.indexCorrida.value + 1}')),
           ),
           body: Container(
             decoration: const BoxDecoration(),

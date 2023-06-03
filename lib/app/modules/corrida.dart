@@ -19,7 +19,6 @@ class Corrida {
 
   @override
   String toString() {
-    // TODO: implement toString
     return 'Etapa';
   }
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'package:speed_kart_pro/app/modules/home/controllers/etapas_controller.dart';
+import 'package:speed_kart_pro/app/controllers/etapas_controller.dart';
 import 'package:speed_kart_pro/app/modules/routes/app_pages.dart';
 
 class HomeScreen extends GetView<EtapaController> {
@@ -44,6 +44,7 @@ class HomeScreen extends GetView<EtapaController> {
                             color: Colors.red.shade700),
                         child: ListTile(
                           onTap: () {
+                            controller.updateIindex(index);
                             Get.toNamed(AppPages.cardEtapa);
                           },
                           leading: const Icon(

@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:speed_kart_pro/app/controllers/pilotos_controller.dart';
 
-class RaceCard extends StatelessWidget {
+import 'package:speed_kart_pro/app/controllers/etapas_controller.dart';
+
+class RaceCard extends GetView<EtapaController> {
   const RaceCard({super.key});
 
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    final pilotoCtrl = Get.put(PilotosController());
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Corrida 1'), //add variavel numero corrida.
@@ -39,10 +40,10 @@ class RaceCard extends StatelessWidget {
               ListView.builder(
                 scrollDirection: Axis.vertical,
                 shrinkWrap: true,
-                itemCount: pilotoCtrl.listaPilotosMaster.length,
+                itemCount: controller.listaPilotosMaster.length,
                 itemBuilder: (context, index) {
                   return ListTile(
-                    title: Text(pilotoCtrl.listaPilotosMaster[index].nome),
+                    title: Text(controller.listaPilotosMaster[index].nome),
                   );
                 },
               ),

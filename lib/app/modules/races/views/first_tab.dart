@@ -1,22 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:speed_kart_pro/app/controllers/corridas_controller.dart';
-import 'package:speed_kart_pro/app/controllers/pilotos_controller.dart';
-import 'package:speed_kart_pro/app/modules/home/controllers/etapas_controller.dart';
 
-class FirstTab extends GetView<PilotosController> {
+import 'package:speed_kart_pro/app/controllers/etapas_controller.dart';
+
+class FirstTab extends GetView<EtapaController> {
   const FirstTab({super.key});
 
   @override
   Widget build(BuildContext context) {
     //late Etapa etapa = etapaCtrl.etapasInfo[nMaster];
-    Get.find<EtapaController>();
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Expanded(
-          child: ListView.builder(
+            child: Obx(
+          () => ListView.builder(
             itemCount: EtapaController().nMaster.value,
             itemBuilder: ((context, index) {
               return Padding(
@@ -53,7 +52,7 @@ class FirstTab extends GetView<PilotosController> {
               );
             }),
           ),
-        ),
+        )),
         Center(
           child: MaterialButton(
               color: Colors.blue,

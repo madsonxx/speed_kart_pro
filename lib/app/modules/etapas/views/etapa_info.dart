@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../home/controllers/etapas_controller.dart';
+import '../../../controllers/etapas_controller.dart';
 import '../../etapa.dart';
 
 class EtapaInfo extends StatefulWidget {

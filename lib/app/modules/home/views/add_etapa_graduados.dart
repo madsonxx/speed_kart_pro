@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:speed_kart_pro/app/components/custom_text_field.dart';
+import 'package:speed_kart_pro/app/controllers/etapas_controller.dart';
 import 'package:speed_kart_pro/app/modules/routes/app_pages.dart';
 
-import '../../../controllers/pilotos_controller.dart';
-
-class EtapaGraduados extends GetWidget<PilotosController> {
+class EtapaGraduados extends GetWidget<EtapaController> {
   const EtapaGraduados({super.key});
 
   @override

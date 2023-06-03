@@ -5,7 +5,7 @@ import 'package:speed_kart_pro/app/modules/home/views/add_etapa.dart';
 import 'package:speed_kart_pro/app/modules/home/views/add_etapa_graduados.dart';
 import 'package:speed_kart_pro/app/modules/home/views/add_piloto_master.dart';
 import 'package:speed_kart_pro/app/modules/home/views/home_page.dart';
-import 'package:speed_kart_pro/app/modules/races/bindings/pilotos_bindings.dart';
+
 import 'package:speed_kart_pro/app/modules/races/views/card_corrida.dart';
 
 part 'app_routes.dart';
@@ -27,19 +27,19 @@ class AppPages {
     GetPage(
         name: _Paths.ADDETAPA,
         page: () => const AddEtapa(),
-        binding: PilotoBinding()),
+        binding: HomeBinding()),
     GetPage(
         name: _Paths.ADDMASTER,
         page: () => const AddPilotos(),
-        binding: PilotoBinding()),
+        binding: HomeBinding()),
     GetPage(
         name: _Paths.ADDGRADUADOS,
         page: () => const EtapaGraduados(),
-        binding: PilotoBinding()),
+        binding: HomeBinding()),
     GetPage(
         name: _Paths.CARDETAPA,
         page: () => const CardEtapa(),
-        binding: PilotoBinding()),
+        binding: HomeBinding()),
     GetPage(name: '/cardRace', page: () => const RaceCard()),
   ];
 }
