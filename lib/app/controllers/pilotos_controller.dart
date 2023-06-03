@@ -4,10 +4,10 @@ import 'package:get/get.dart';
 import '../modules/pilotos.dart';
 
 class PilotosController extends GetxController {
-  RxList<Pilotos> listaPilotosGraduados = RxList<Pilotos>();
-  RxList<Pilotos> listaPilotosMaster = RxList<Pilotos>();
-  RxList<Pilotos> listaEtapaGraduados = RxList<Pilotos>();
-  RxList<Pilotos> listaEtapaMaster = RxList<Pilotos>();
+  RxList<Pilotos> listaPilotosGraduados = RxList<Pilotos>([]);
+  RxList<Pilotos> listaPilotosMaster = RxList<Pilotos>([]);
+  RxList<Pilotos> listaEtapaGraduados = RxList<Pilotos>([]);
+  RxList<Pilotos> listaEtapaMaster = RxList<Pilotos>([]);
   TextEditingController quantidadePilotosMaster = TextEditingController();
   TextEditingController quantidadePilotosGraduados = TextEditingController();
   TextEditingController nomesMaster = TextEditingController();
@@ -25,6 +25,9 @@ class PilotosController extends GetxController {
     listaPilotosMaster.add(pilotos);
     itemCountMaster.value = listaPilotosMaster.length;
     existemPilotos.value = true;
+    nomesMaster.clear();
+    print(listaPilotosMaster);
+    update();
   }
 
   void clear() {
@@ -37,6 +40,8 @@ class PilotosController extends GetxController {
     listaPilotosGraduados.add(pilotos);
     itemCountMaster.value = listaPilotosGraduados.length;
     existemPilotos.value = true;
+    nomesGraduados.clear();
+    update();
   }
 }
 

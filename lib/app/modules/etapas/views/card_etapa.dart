@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:speed_kart_pro/app/controllers/pilotos_controller.dart';
 import 'package:speed_kart_pro/app/modules/races/views/first_tab.dart';
 import 'package:speed_kart_pro/app/modules/races/views/second_tab.dart';
 
-class CardEtapa extends StatelessWidget {
+class CardEtapa extends GetView<PilotosController> {
   const CardEtapa({super.key});
 
   @override
@@ -37,7 +38,11 @@ class CardEtapa extends StatelessWidget {
                   ),
                 ],
               ),
-              Expanded(child: TabBarView(children: [FirstTab(), SecondTab()])),
+              Expanded(
+                  child: TabBarView(children: [
+                FirstTab(),
+                SecondTab(),
+              ])),
             ]),
           ),
         ));

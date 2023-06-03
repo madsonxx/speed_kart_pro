@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
 import 'package:speed_kart_pro/app/modules/home/controllers/etapas_controller.dart';
-import 'package:speed_kart_pro/app/modules/etapa.dart';
-import 'package:speed_kart_pro/app/modules/etapas/views/etapa_info.dart';
 import 'package:speed_kart_pro/app/modules/routes/app_pages.dart';
 
 class HomeScreen extends GetView<EtapaController> {
@@ -50,6 +49,7 @@ class HomeScreen extends GetView<EtapaController> {
                                   '${controller.etapasInfo[index].etapaNumero}',
                               'numeroMaster': '${controller.nMaster}',
                             });
+                            print(Get.arguments['listaNomeMaster']);
                           },
                           leading: const Icon(
                             Icons.sports_motorsports_sharp,

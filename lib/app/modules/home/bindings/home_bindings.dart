@@ -4,6 +4,6 @@ import 'package:speed_kart_pro/app/modules/home/controllers/etapas_controller.da
 class HomeBinding extends Bindings {
   @override
   void dependencies() {
-    Get.lazyPut<EtapaController>(() => EtapaController());
+    Get.lazyPut<EtapaController>(() => EtapaController(), fenix: true);
   }
 }

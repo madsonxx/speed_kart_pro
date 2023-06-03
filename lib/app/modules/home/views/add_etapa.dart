@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:speed_kart_pro/app/components/custom_text_field.dart';
 import 'package:speed_kart_pro/app/modules/home/controllers/etapas_controller.dart';
 import 'package:speed_kart_pro/app/modules/routes/app_pages.dart';
-import '../../../controllers/pilotos_controller.dart';
 
 class AddEtapa extends GetView<EtapaController> {
   const AddEtapa({super.key});

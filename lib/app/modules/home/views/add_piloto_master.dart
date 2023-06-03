@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:speed_kart_pro/app/components/custom_text_field.dart';
 import 'package:speed_kart_pro/app/modules/pilotos.dart';
+import 'package:speed_kart_pro/app/modules/routes/app_pages.dart';
 
 import '../../../controllers/pilotos_controller.dart';
 
@@ -95,10 +96,10 @@ class AddPilotos extends GetWidget<PilotosController> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Get.toNamed('/addGraduados', arguments: {
+          print(controller.listaPilotosMaster);
+          Get.toNamed(AppPages.addGraduados, arguments: {
             'listaNomesMaster': controller.listaPilotosMaster,
           });
-          print(Get.arguments['listaNomeMaster']);
         },
         child: const Icon(Icons.arrow_forward),
       ),

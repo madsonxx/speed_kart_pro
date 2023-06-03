@@ -4,7 +4,7 @@ import 'package:speed_kart_pro/app/controllers/corridas_controller.dart';
 import 'package:speed_kart_pro/app/modules/home/controllers/etapas_controller.dart';
 import 'package:speed_kart_pro/app/controllers/pilotos_controller.dart';
 
-class FirstTab extends StatelessWidget {
+class FirstTab extends GetView<PilotosController> {
   const FirstTab({super.key});
 
   @override
@@ -12,8 +12,6 @@ class FirstTab extends StatelessWidget {
     late List nomesMaster = Get.arguments['listaNomesMaster'];
     final pilotoCtrl = Get.put(PilotosController());
     final raceCtrl = Get.put(RaceController());
-    final etapaCtrl = Get.put(EtapaController());
-    late int nEtapa = int.parse(Get.arguments['numeroEtapa']);
     late int nMaster = int.parse(Get.arguments['numeroMaster']);
     //late Etapa etapa = etapaCtrl.etapasInfo[nMaster];
 
