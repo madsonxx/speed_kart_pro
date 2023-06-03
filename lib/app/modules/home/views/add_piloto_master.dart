@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:speed_kart_pro/app/components/custom_text_field.dart';
 import 'package:speed_kart_pro/app/controllers/etapas_controller.dart';
-import 'package:speed_kart_pro/app/modules/pilotos.dart';
+
 import 'package:speed_kart_pro/app/modules/routes/app_pages.dart';
 
 class AddPilotos extends GetWidget<EtapaController> {
@@ -56,8 +56,14 @@ class AddPilotos extends GetWidget<EtapaController> {
                       child: IconButton(
                         onPressed: () {
                           if (controller.nomesMaster.text.isNotEmpty) {
+                            controller.listaBoolMaster.add(true);
+                            controller.addNome(controller.nomesMaster.text);
                             controller
                                 .addPilotosMaster(controller.nomesMaster.text);
+                            controller.addPilotosMasterEtapa(
+                                controller.nomesMaster.text);
+
+                            print(controller.listaPilotosMasterEtapa);
                           }
                         },
                         icon: const Icon(Icons.add),
@@ -72,10 +78,25 @@ class AddPilotos extends GetWidget<EtapaController> {
               () => ListView.builder(
                 scrollDirection: Axis.vertical,
                 shrinkWrap: true,
-                itemCount: controller.listaPilotosMaster.length,
+                itemCount: controller.listaPilotosMasterGeral.length,
                 itemBuilder: (context, index) {
-                  return ListTile(
-                    title: Text(controller.listaPilotosMaster[index].nome),
+                  return Obx(
+                    () => CheckboxListTile(
+                      value: controller.listaBoolMaster[index] ?? false,
+                      title:
+                          Text(controller.listaPilotosMasterGeral[index].nome),
+                      onChanged: (value) {
+                        controller.listaBoolMaster[index] = value!;
+                        controller.listaBoolMaster[index]
+                            ? controller.addPilotosMasterEtapa(
+                                controller.listaPilotosMasterGeral[index].nome)
+                            : controller.removePilotosMasterEtapa(
+                                controller.listaPilotosMasterGeral[index].nome);
+                        print(index);
+                        print(controller.listaBoolMaster[index]);
+                        print(controller.listaPilotosMasterEtapa);
+                      },
+                    ),
                   );
                 },
               ),
@@ -98,7 +119,7 @@ class AddPilotos extends GetWidget<EtapaController> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          print(controller.listaPilotosMaster);
+          print(controller.listaPilotosMasterEtapa);
           Get.toNamed(AppPages.addGraduados);
         },
         child: const Icon(Icons.arrow_forward),

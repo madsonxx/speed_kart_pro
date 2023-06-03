@@ -71,10 +71,11 @@ class EtapaGraduados extends GetWidget<EtapaController> {
               () => ListView.builder(
                 scrollDirection: Axis.vertical,
                 shrinkWrap: true,
-                itemCount: controller.listaEtapaGraduados.length,
+                itemCount: controller.listaPilotosGraduadosGeral.length,
                 itemBuilder: (context, index) {
                   return ListTile(
-                    title: Text(controller.listaPilotosGraduados[index].nome),
+                    title:
+                        Text(controller.listaPilotosGraduadosGeral[index].nome),
                   );
                 },
               ),
@@ -97,8 +98,15 @@ class EtapaGraduados extends GetWidget<EtapaController> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
+          controller.addEtapa(
+              int.parse(controller.numeroEtapaController.text),
+              controller.dataEtapaController.text,
+              int.parse(controller.numeroMasterController.text),
+              int.parse(controller.numeroGraduadosController.text),
+              controller.listaPilotosMasterEtapa,
+              controller.listaPilotosGraduadosEtapa);
           Get.toNamed(AppPages.homeRoute, arguments: {
-            'listaNomesMaster': controller.listaPilotosGraduados,
+            'listaNomesMaster': controller.listaPilotosGraduadosGeral,
           });
         },
         child: const Icon(Icons.arrow_forward),

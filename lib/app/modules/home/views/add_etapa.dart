@@ -100,11 +100,8 @@ class AddEtapa extends GetView<EtapaController> {
                   style: TextStyle(color: Colors.white),
                 ),
                 onPressed: () {
-                  controller.addEtapa(
-                      int.parse(controller.numeroEtapaController.text),
-                      controller.dataEtapaController.text,
-                      int.parse(controller.numeroMasterController.text),
-                      int.parse(controller.numeroGraduadosController.text));
+                  controller.addIndex(
+                      int.parse(controller.numeroEtapaController.text));
                   Get.toNamed(AppPages.addMaster);
                 }
                 /* () async {

@@ -6,17 +6,26 @@ import 'package:speed_kart_pro/app/modules/pilotos.dart';
 
 class EtapaController extends GetxController {
   RxList<Etapa> etapasInfo = RxList<Etapa>([]);
-  RxList<Pilotos> listaPilotosGraduados = RxList<Pilotos>([]);
-  RxList<Pilotos> listaPilotosMaster = RxList<Pilotos>([]);
-  RxList<Pilotos> listaEtapaGraduados = RxList<Pilotos>([]);
+  RxList<Pilotos> listaPilotosGraduadosGeral = RxList<Pilotos>([]);
+  RxList<Pilotos> listaPilotosMasterGeral = RxList<Pilotos>([]);
+
+  RxList<List<Pilotos>> listaPilotosGraduados = RxList<List<Pilotos>>([]);
+  RxList<List<Pilotos>> listaPilotosMaster = RxList<List<Pilotos>>([]);
+
+  RxList<Pilotos> listaPilotosMasterEtapa = RxList<Pilotos>([]);
+  RxList<Pilotos> listaPilotosGraduadosEtapa = RxList<Pilotos>([]);
+
   RxList<Pilotos> listaEtapaMaster = RxList<Pilotos>([]);
   RxList<Corrida> corridas = RxList<Corrida>([]);
+
+  RxList listaBoolMaster = RxList([]);
+  RxList listaBoolGraduados = RxList([]);
+
   TextEditingController numeroEtapaController = TextEditingController();
   TextEditingController dataEtapaController = TextEditingController();
   TextEditingController numeroMasterController = TextEditingController();
   TextEditingController numeroGraduadosController = TextEditingController();
-  TextEditingController quantidadePilotosMaster = TextEditingController();
-  TextEditingController quantidadePilotosGraduados = TextEditingController();
+
   TextEditingController nomesMaster = TextEditingController();
   TextEditingController nomesGraduados = TextEditingController();
   TextEditingController posController = TextEditingController();
@@ -27,39 +36,73 @@ class EtapaController extends GetxController {
   //var indexEtapa = 0.obs;
 
   late Etapa etapas;
+  late Pilotos pilotos;
+  late Corrida corrida;
+
   var itemCount = 0.obs;
   var nMaster = 0.obs;
   var nGraduados = 0.obs;
-  late Pilotos pilotos;
+
   var existemPilotos = false.obs;
   var itemCountMaster = 0.obs;
   var itemCountGraduados = 0.obs;
   var pontuacaoEtapa = 0.obs;
   var pontuacaoGeral = 0.obs;
-  late Corrida corrida;
+
+  var nomeParametro = ''.obs;
+
   var existemPontos = true.obs;
+  RxBool isChecked = false.obs;
 
   void addPilotosMaster(String nomes) {
     pilotos = Pilotos(nome: nomes);
-    listaPilotosMaster.add(pilotos);
-    itemCountMaster.value = listaPilotosMaster.length;
-    existemPilotos.value = true;
-    nomesMaster.clear();
-    update();
-  }
+    listaPilotosMasterGeral.add(pilotos);
+    itemCountMaster.value = listaPilotosMasterGeral.length;
 
-  void clear() {
-    nomesMaster.clear();
-    nomesGraduados.clear();
+    update();
   }
 
   void addPilotosGraduados(String nomes) {
     pilotos = Pilotos(nome: nomes);
-    listaPilotosGraduados.add(pilotos);
-    itemCountMaster.value = listaPilotosGraduados.length;
+    listaPilotosGraduadosGeral.add(pilotos);
+    itemCountMaster.value = listaPilotosGraduadosGeral.length;
+    nomesGraduados.clear();
+    update();
+  }
+
+  void addPilotosMasterEtapa(String nomes) {
+    pilotos = Pilotos(nome: nomes);
+    listaPilotosMasterEtapa.add(pilotos);
+    existemPilotos.value = true;
+    nomesMaster.clear();
+    update();
+  }
+
+  void removePilotosMasterEtapa(String nome) {
+    int index =
+        listaPilotosMasterEtapa.indexWhere((Pilotos) => Pilotos.nome == nome);
+    print(index);
+    listaPilotosMasterEtapa.removeAt(index);
+    update();
+  }
+
+  void addPilotosGraduadosEtapa(String nomes) {
+    pilotos = Pilotos(nome: nomes);
+    listaPilotosGraduadosEtapa.add(pilotos);
     existemPilotos.value = true;
     nomesGraduados.clear();
     update();
+  }
+
+  void removePilotosGraduadosEtapa(String nome) {
+    int index = listaPilotosGraduadosEtapa
+        .indexWhere((Pilotos) => Pilotos.nome == nome);
+    listaPilotosGraduadosEtapa.removeAt(index);
+    update();
+  }
+
+  void addNome(String nome) {
+    nomeParametro.value = nome;
   }
 
 /*   void gravarEtapa(Etapa pEtapa) {
@@ -68,12 +111,20 @@ class EtapaController extends GetxController {
   }
  */
   void addEtapa(
-      int etapaNumber, String data, int numeroMaster, int numeroGraduados) {
+      int etapaNumber,
+      String data,
+      int numeroMaster,
+      int numeroGraduados,
+      List<Pilotos> nomesMaster,
+      List<Pilotos> nomesGraduados) {
     etapas = Etapa(
-        etapaNumero: etapaNumber,
-        data: data,
-        master: numeroMaster,
-        graduados: numeroGraduados);
+      etapaNumero: etapaNumber,
+      data: data,
+      master: numeroMaster,
+      graduados: numeroGraduados,
+      pilotosGraduadosEtapa: nomesGraduados,
+      pilotosMasterEtapa: nomesMaster,
+    );
     etapasInfo.add(etapas);
     itemCount.value = etapasInfo.length;
     existeEtapa.value = true;
@@ -94,10 +145,18 @@ class EtapaController extends GetxController {
     }
   }
 
+  void addIndex(int numeroEtapa) {
+    indexEtapa = numeroEtapa;
+  }
+
   void updateIindex(var cardID) {
     indexEtapa = etapasInfo[cardID].etapaNumero;
     nMaster.value = etapasInfo[cardID].master;
     nGraduados.value = etapasInfo[cardID].graduados;
+  }
+
+  void sortearBaterias() {
+    //etapasInfo[indexEtapa].length nMaster.value
   }
 
 /*   void findIndex(int etapaID) {

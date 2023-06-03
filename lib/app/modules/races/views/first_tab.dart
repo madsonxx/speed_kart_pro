@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'package:speed_kart_pro/app/controllers/etapas_controller.dart';
+import 'package:speed_kart_pro/app/modules/routes/app_pages.dart';
 
 class FirstTab extends GetView<EtapaController> {
   const FirstTab({super.key});
@@ -26,7 +27,9 @@ class FirstTab extends GetView<EtapaController> {
                       borderRadius: BorderRadius.circular(20),
                       color: Colors.red.shade700),
                   child: ListTile(
-                    onTap: () {},
+                    onTap: () {
+                      Get.toNamed(AppPages.cardCorrida);
+                    },
                     leading: const Icon(
                       Icons.sports_motorsports_sharp,
                       size: 45,
@@ -83,10 +86,10 @@ class FirstTab extends GetView<EtapaController> {
         ListView.builder(
           scrollDirection: Axis.vertical,
           shrinkWrap: true,
-          itemCount: controller.listaPilotosMaster.length,
+          itemCount: controller.listaPilotosMasterGeral.length,
           itemBuilder: (context, index) {
             return ListTile(
-              title: Text(controller.listaPilotosMaster[index].nome),
+              title: Text(controller.listaPilotosMasterGeral[index].nome),
             );
           },
         ),

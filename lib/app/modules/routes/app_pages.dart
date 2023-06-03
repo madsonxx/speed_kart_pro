@@ -18,6 +18,7 @@ class AppPages {
   static const addMaster = Routes.ADDMASTER;
   static const cardEtapa = Routes.CARDEPETA;
   static const addGraduados = Routes.ADDGRADUADOS;
+  static const cardCorrida = Routes.CARDCORRIDA;
 
   static final routes = [
     GetPage(
@@ -40,6 +41,9 @@ class AppPages {
         name: _Paths.CARDETAPA,
         page: () => const CardEtapa(),
         binding: HomeBinding()),
-    GetPage(name: '/cardRace', page: () => const RaceCard()),
+    GetPage(
+        name: _Paths.CARDCORRIDA,
+        page: () => const RaceCard(),
+        binding: HomeBinding()),
   ];
 }

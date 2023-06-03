@@ -6,6 +6,7 @@ abstract class Routes {
   static const ADDMASTER = _Paths.ADDMASTER;
   static const CARDEPETA = _Paths.CARDETAPA;
   static const ADDGRADUADOS = _Paths.ADDGRADUADOS;
+  static const CARDCORRIDA = _Paths.CARDCORRIDA;
 }
 
 abstract class _Paths {
@@ -14,4 +15,5 @@ abstract class _Paths {
   static const ADDMASTER = '/addPilotos';
   static const CARDETAPA = '/cardEtapa';
   static const ADDGRADUADOS = '/addGraduados';
+  static const CARDCORRIDA = '/cardCorrida';
 }

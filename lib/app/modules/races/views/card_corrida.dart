@@ -37,7 +37,7 @@ class RaceCard extends GetView<EtapaController> {
               //Botão Adicionar Punição
 
               const Text('Participantes: '),
-              ListView.builder(
+              /* ListView.builder(
                 scrollDirection: Axis.vertical,
                 shrinkWrap: true,
                 itemCount: controller.listaPilotosMaster.length,
@@ -46,7 +46,7 @@ class RaceCard extends GetView<EtapaController> {
                     title: Text(controller.listaPilotosMaster[index].nome),
                   );
                 },
-              ),
+              ), */
             ],
           ),
         ),
