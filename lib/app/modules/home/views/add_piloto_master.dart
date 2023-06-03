@@ -97,9 +97,7 @@ class AddPilotos extends GetWidget<PilotosController> {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           print(controller.listaPilotosMaster);
-          Get.toNamed(AppPages.addGraduados, arguments: {
-            'listaNomesMaster': controller.listaPilotosMaster,
-          });
+          Get.toNamed(AppPages.addGraduados);
         },
         child: const Icon(Icons.arrow_forward),
       ),

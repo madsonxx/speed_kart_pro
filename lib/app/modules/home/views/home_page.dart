@@ -44,12 +44,7 @@ class HomeScreen extends GetView<EtapaController> {
                             color: Colors.red.shade700),
                         child: ListTile(
                           onTap: () {
-                            Get.toNamed(AppPages.cardEtapa, arguments: {
-                              'numeroEtapa':
-                                  '${controller.etapasInfo[index].etapaNumero}',
-                              'numeroMaster': '${controller.nMaster}',
-                            });
-                            print(Get.arguments['listaNomeMaster']);
+                            Get.toNamed(AppPages.cardEtapa);
                           },
                           leading: const Icon(
                             Icons.sports_motorsports_sharp,

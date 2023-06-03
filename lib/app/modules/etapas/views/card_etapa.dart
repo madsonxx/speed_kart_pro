@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:speed_kart_pro/app/controllers/pilotos_controller.dart';
+import 'package:speed_kart_pro/app/modules/home/controllers/etapas_controller.dart';
 import 'package:speed_kart_pro/app/modules/races/views/first_tab.dart';
 import 'package:speed_kart_pro/app/modules/races/views/second_tab.dart';
 
@@ -9,8 +10,8 @@ class CardEtapa extends GetView<PilotosController> {
 
   @override
   Widget build(BuildContext context) {
+    Get.find<EtapaController>();
     final size = MediaQuery.of(context).size;
-    late String etapa = Get.arguments['numeroEtapa'];
 
     return DefaultTabController(
         length: 2,
@@ -18,7 +19,7 @@ class CardEtapa extends GetView<PilotosController> {
           backgroundColor: Colors.black,
           appBar: AppBar(
             backgroundColor: Colors.transparent,
-            title: Center(child: Text('Etapa ${etapa}')),
+            title: Center(child: Text('Etapa')),
           ),
           body: Container(
             decoration: const BoxDecoration(),

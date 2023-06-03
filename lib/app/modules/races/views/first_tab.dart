@@ -1,26 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:speed_kart_pro/app/controllers/corridas_controller.dart';
-import 'package:speed_kart_pro/app/modules/home/controllers/etapas_controller.dart';
 import 'package:speed_kart_pro/app/controllers/pilotos_controller.dart';
+import 'package:speed_kart_pro/app/modules/home/controllers/etapas_controller.dart';
 
 class FirstTab extends GetView<PilotosController> {
   const FirstTab({super.key});
 
   @override
   Widget build(BuildContext context) {
-    late List nomesMaster = Get.arguments['listaNomesMaster'];
-    final pilotoCtrl = Get.put(PilotosController());
-    final raceCtrl = Get.put(RaceController());
-    late int nMaster = int.parse(Get.arguments['numeroMaster']);
     //late Etapa etapa = etapaCtrl.etapasInfo[nMaster];
+    Get.find<EtapaController>();
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Expanded(
           child: ListView.builder(
-            itemCount: nMaster,
+            itemCount: EtapaController().nMaster.value,
             itemBuilder: ((context, index) {
               return Padding(
                 padding: const EdgeInsets.only(
@@ -67,7 +64,7 @@ class FirstTab extends GetView<PilotosController> {
               onPressed: () {}),
         ),
         Obx(
-          () => raceCtrl.existemPontos.value
+          () => controller.existemPilotos.value
               ? Column(
                   children: [
                     Text(
@@ -87,10 +84,10 @@ class FirstTab extends GetView<PilotosController> {
         ListView.builder(
           scrollDirection: Axis.vertical,
           shrinkWrap: true,
-          itemCount: nomesMaster.length,
+          itemCount: controller.listaPilotosMaster.length,
           itemBuilder: (context, index) {
             return ListTile(
-              title: Text(nomesMaster[index]),
+              title: Text(controller.listaPilotosMaster[index].nome),
             );
           },
         ),
