@@ -20,11 +20,13 @@ class CardEtapa extends GetView<EtapaController> {
             title: Center(child: Text('Etapa ${controller.indexEtapa}')),
           ),
           body: SingleChildScrollView(
+            //clipBehavior: Clip.hardEdge,
             scrollDirection: Axis.vertical,
+            physics: BouncingScrollPhysics(),
             child: Container(
               decoration: const BoxDecoration(),
               height: size.height,
-              child: const Column(mainAxisSize: MainAxisSize.max, children: [
+              child: const Column(mainAxisSize: MainAxisSize.min, children: [
                 TabBar(
                   tabs: [
                     Tab(
@@ -39,12 +41,12 @@ class CardEtapa extends GetView<EtapaController> {
                     ),
                   ],
                 ),
-                Flexible(
-                    fit: FlexFit.tight,
+                Expanded(
+                    //fit: FlexFit.loose,
                     child: TabBarView(children: [
-                      FirstTab(),
-                      SecondTab(),
-                    ])),
+                  FirstTab(),
+                  SecondTab(),
+                ])),
               ]),
             ),
           ),

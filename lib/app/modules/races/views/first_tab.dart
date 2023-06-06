@@ -11,13 +11,13 @@ class FirstTab extends GetView<EtapaController> {
   Widget build(BuildContext context) {
     //late Etapa etapa = etapaCtrl.etapasInfo[nMaster];
 
-    return Container(
+    return SingleChildScrollView(
       child: Column(
-        mainAxisSize: MainAxisSize.min,
+        mainAxisSize: MainAxisSize.max,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Expanded(
-              child: Obx(
+          Obx(
             () => ListView.builder(
               shrinkWrap: true,
               itemCount: controller.nMaster.value,
@@ -58,7 +58,7 @@ class FirstTab extends GetView<EtapaController> {
                 );
               }),
             ),
-          )),
+          ),
           Center(
             child: MaterialButton(
                 color: Colors.blue,
