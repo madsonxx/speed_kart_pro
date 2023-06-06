@@ -1,61 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:speed_kart_pro/app/components/custom_text_field.dart';
-import 'package:speed_kart_pro/app/components/theme/dark_theme.dart';
 import 'package:speed_kart_pro/app/controllers/etapas_controller.dart';
 import 'package:speed_kart_pro/app/modules/routes/app_pages.dart';
 
-class AddEtapa extends GetView<EtapaController> {
-  const AddEtapa({super.key});
-
-  //final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-
-/*   Future<void> showInformationDialog(BuildContext context) async {
-    return await showDialog(
-        context: context,
-        builder: (context) {
-          final TextEditingController textEditingController =
-              TextEditingController();
-          return AlertDialog(
-            content: Form(
-              key: _formKey,
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  TextFormField(
-                    controller: textEditingController,
-                    validator: (value) {
-                      return value!.isNotEmpty ? null : 'Invalid Field';
-                    },
-                    decoration:
-                        const InputDecoration(hintText: 'Enter some Text'),
-                  ),
-                  TextButton(
-                      onPressed: () {
-                        if (_formKey.currentState!.validate()) {
-                          Navigator.of(context).pop();
-                        }
-                      },
-                      child: const Text('Okay'))
-                ],
-              ),
-            ),
-          );
-        });
-  } */
+class AdicionarBaterias extends GetView<EtapaController> {
+  const AdicionarBaterias({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
     return Scaffold(
-      resizeToAvoidBottomInset: false,
-      backgroundColor: Theme.of(context).colorScheme.background,
-      appBar: AppBar(
-        title: const Text('Adicionar Etapa'),
-        leading: BackButton(
-          onPressed: () => Get.back(),
-        ),
-      ),
+      appBar: AppBar(title: Text('Adicionar Etapa')),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
@@ -69,6 +24,13 @@ class AddEtapa extends GetView<EtapaController> {
                 children: [
                   const SizedBox(height: 15),
 
+                  Obx(
+                    () => ListView.builder(
+                      scrollDirection: Axis.vertical,
+                      shrinkWrap: true,
+                      itemBuilder: (context, index) {},
+                    ),
+                  ),
                   CustomTextField(
                     legenda: 'Numero da Etapa',
                     controllerTexto: controller.numeroEtapaController,

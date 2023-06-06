@@ -4,7 +4,9 @@ import 'package:speed_kart_pro/app/modules/home/bindings/home_bindings.dart';
 import 'package:speed_kart_pro/app/modules/home/views/add_etapa.dart';
 import 'package:speed_kart_pro/app/modules/home/views/add_etapa_graduados.dart';
 import 'package:speed_kart_pro/app/modules/home/views/add_piloto_master.dart';
+import 'package:speed_kart_pro/app/modules/home/views/controle_baterias.dart';
 import 'package:speed_kart_pro/app/modules/home/views/home_page.dart';
+import 'package:speed_kart_pro/app/modules/races/views/add_corrida.dart';
 
 import 'package:speed_kart_pro/app/modules/races/views/card_corrida.dart';
 
@@ -19,6 +21,7 @@ class AppPages {
   static const cardEtapa = Routes.CARDEPETA;
   static const addGraduados = Routes.ADDGRADUADOS;
   static const cardCorrida = Routes.CARDCORRIDA;
+  static const addCorrida = Routes.ADDCORRIDA;
 
   static final routes = [
     GetPage(
@@ -44,6 +47,14 @@ class AppPages {
     GetPage(
         name: _Paths.CARDCORRIDA,
         page: () => const RaceCard(),
+        binding: HomeBinding()),
+    GetPage(
+        name: _Paths.ADDCORRIDA,
+        page: () => const AddRaceMaster(),
+        binding: HomeBinding()),
+    GetPage(
+        name: _Paths.ADDBATERIAS,
+        page: () => const AdicionarBaterias(),
         binding: HomeBinding()),
   ];
 }

@@ -1,5 +1,5 @@
 class Corrida {
-  late String data;
+  late String corridaInfo;
   late List<String> pilotos;
 
   var posicoes = {
@@ -15,7 +15,7 @@ class Corrida {
     'decimo': 1
   };
 
-  Corrida({required this.data, this.pilotos = const []});
+  Corrida({required this.corridaInfo, this.pilotos = const []});
 
   @override
   String toString() {

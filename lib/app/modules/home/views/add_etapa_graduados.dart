@@ -38,13 +38,13 @@ class EtapaGraduados extends GetWidget<EtapaController> {
                 ),
                 Expanded(
                     child: CustomTextField(
+                        legenda: 'Participantes graduados',
                         dicaText: 'Nomes',
                         controllerTexto: controller.nomesGraduados,
                         label: 'Adicionar Nomes',
-                        icon: Icons.person)),
+                        icon: Icons.sports_motorsports_sharp)),
                 Padding(
-                  padding:
-                      const EdgeInsets.only(bottom: 15, left: 10, right: 10),
+                  padding: const EdgeInsets.only(left: 10, right: 10, top: 20),
                   child: InkWell(
                     child: Container(
                       height: 40,
@@ -55,8 +55,13 @@ class EtapaGraduados extends GetWidget<EtapaController> {
                       child: IconButton(
                         onPressed: () {
                           if (controller.nomesGraduados.text.isNotEmpty) {
+                            controller.listaBoolGraduados.add(true);
                             controller.addPilotosGraduados(
                                 controller.nomesGraduados.text);
+                            controller.addPilotosGraduadosEtapa(
+                                controller.nomesGraduados.text);
+
+                            print(controller.listaPilotosMasterEtapa);
                           }
                         },
                         icon: const Icon(Icons.add),
@@ -73,9 +78,20 @@ class EtapaGraduados extends GetWidget<EtapaController> {
                 shrinkWrap: true,
                 itemCount: controller.listaPilotosGraduadosGeral.length,
                 itemBuilder: (context, index) {
-                  return ListTile(
-                    title:
-                        Text(controller.listaPilotosGraduadosGeral[index].nome),
+                  return Obx(
+                    () => CheckboxListTile(
+                      value: controller.listaBoolGraduados[index] ?? false,
+                      title: Text(
+                          controller.listaPilotosGraduadosGeral[index].nome),
+                      onChanged: (value) {
+                        controller.listaBoolGraduados[index] = value!;
+                        controller.listaBoolGraduados[index]
+                            ? controller.addPilotosGraduadosEtapa(controller
+                                .listaPilotosGraduadosGeral[index].nome)
+                            : controller.removePilotosGraduadosEtapa(controller
+                                .listaPilotosGraduadosGeral[index].nome);
+                      },
+                    ),
                   );
                 },
               ),
@@ -105,9 +121,13 @@ class EtapaGraduados extends GetWidget<EtapaController> {
               int.parse(controller.numeroGraduadosController.text),
               controller.listaPilotosMasterEtapa,
               controller.listaPilotosGraduadosEtapa);
-          Get.toNamed(AppPages.homeRoute, arguments: {
-            'listaNomesMaster': controller.listaPilotosGraduadosGeral,
-          });
+/*           for (var i = 0; i < controller.listaBoolMaster.length; i++) {
+            controller.listaBoolMaster[i] = false;
+          }
+          for (var i = 0; i < controller.listaBoolGraduados.length; i++) {
+            controller.listaBoolGraduados[i] = false;
+          } */
+          Get.toNamed(AppPages.homeRoute);
         },
         child: const Icon(Icons.arrow_forward),
       ),

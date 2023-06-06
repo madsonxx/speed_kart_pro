@@ -1,0 +1,22 @@
+List posicoes = [
+  'Primeiro',
+  'Segundo',
+  'Terceiro',
+  'Quarto',
+  'Quinto',
+  'Sexto',
+  'Sétimo',
+  'Oitavo',
+  'Nono',
+  'Decimo',
+  'Decimo Primeiro',
+  'Decimo Segundo',
+  'Decimo Terceiro',
+  'Decimo Quarto',
+  'Decimo Quinto',
+  'Decimo Sexto',
+  'Decimo Sétimo',
+  'Decimo Oitavo',
+  'Decimo Nono',
+  'Vigésimo'
+];

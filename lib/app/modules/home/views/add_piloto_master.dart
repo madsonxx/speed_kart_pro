@@ -39,13 +39,13 @@ class AddPilotos extends GetWidget<EtapaController> {
                 ),
                 Expanded(
                     child: CustomTextField(
+                        legenda: 'Participantes da Master',
                         dicaText: 'Nomes',
                         controllerTexto: controller.nomesMaster,
                         label: 'Adicionar Nomes',
-                        icon: Icons.person)),
+                        icon: Icons.sports_motorsports_sharp)),
                 Padding(
-                  padding:
-                      const EdgeInsets.only(bottom: 15, left: 10, right: 10),
+                  padding: const EdgeInsets.only(left: 10, right: 10, top: 20),
                   child: InkWell(
                     child: Container(
                       height: 40,
@@ -57,7 +57,6 @@ class AddPilotos extends GetWidget<EtapaController> {
                         onPressed: () {
                           if (controller.nomesMaster.text.isNotEmpty) {
                             controller.listaBoolMaster.add(true);
-                            controller.addNome(controller.nomesMaster.text);
                             controller
                                 .addPilotosMaster(controller.nomesMaster.text);
                             controller.addPilotosMasterEtapa(

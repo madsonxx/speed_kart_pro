@@ -16,35 +16,37 @@ class CardEtapa extends GetView<EtapaController> {
     return DefaultTabController(
         length: 2,
         child: Scaffold(
-          backgroundColor: Colors.black,
           appBar: AppBar(
-            backgroundColor: Colors.transparent,
             title: Center(child: Text('Etapa ${controller.indexEtapa}')),
           ),
-          body: Container(
-            decoration: const BoxDecoration(),
-            height: size.height,
-            child: Column(children: [
-              TabBar(
-                tabs: [
-                  Tab(
-                    text: 'Master',
-                    icon: Icon(
-                      Icons.home,
+          body: SingleChildScrollView(
+            scrollDirection: Axis.vertical,
+            child: Container(
+              decoration: const BoxDecoration(),
+              height: size.height,
+              child: const Column(mainAxisSize: MainAxisSize.max, children: [
+                TabBar(
+                  tabs: [
+                    Tab(
+                      text: 'Master',
+                      icon: Icon(
+                        Icons.home,
+                      ),
                     ),
-                  ),
-                  Tab(
-                    text: 'Graduados',
-                    icon: Icon(Icons.home),
-                  ),
-                ],
-              ),
-              Expanded(
-                  child: TabBarView(children: [
-                FirstTab(),
-                SecondTab(),
-              ])),
-            ]),
+                    Tab(
+                      text: 'Graduados',
+                      icon: Icon(Icons.home),
+                    ),
+                  ],
+                ),
+                Flexible(
+                    fit: FlexFit.tight,
+                    child: TabBarView(children: [
+                      FirstTab(),
+                      SecondTab(),
+                    ])),
+              ]),
+            ),
           ),
         ));
   }

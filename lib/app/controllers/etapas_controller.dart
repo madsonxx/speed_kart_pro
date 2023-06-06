@@ -5,7 +5,7 @@ import 'package:speed_kart_pro/app/modules/etapa.dart';
 import 'package:speed_kart_pro/app/modules/pilotos.dart';
 
 class EtapaController extends GetxController {
-  RxList<Etapa> etapasInfo = RxList<Etapa>([]);
+  RxList<Etapa> listaEtapas = RxList<Etapa>([]);
   RxList<Pilotos> listaPilotosGraduadosGeral = RxList<Pilotos>([]);
   RxList<Pilotos> listaPilotosMasterGeral = RxList<Pilotos>([]);
 
@@ -32,12 +32,16 @@ class EtapaController extends GetxController {
 
   var existeEtapa = false.obs;
   //var indexCorrida = 0.obs;
-  int indexEtapa = 0;
+  var indexEtapa = 0.obs;
+  var indexCorrida = 0.obs;
   //var indexEtapa = 0.obs;
 
   late Etapa etapas;
   late Pilotos pilotos;
   late Corrida corrida;
+
+  RxList numeroParticipantesCorridaMaster = RxList([]);
+  RxList numeroParticipantesCorridaGraduados = RxList([]);
 
   var itemCount = 0.obs;
   var nMaster = 0.obs;
@@ -65,7 +69,7 @@ class EtapaController extends GetxController {
   void addPilotosGraduados(String nomes) {
     pilotos = Pilotos(nome: nomes);
     listaPilotosGraduadosGeral.add(pilotos);
-    itemCountMaster.value = listaPilotosGraduadosGeral.length;
+    itemCountGraduados.value = listaPilotosGraduadosGeral.length;
     nomesGraduados.clear();
     update();
   }
@@ -81,7 +85,6 @@ class EtapaController extends GetxController {
   void removePilotosMasterEtapa(String nome) {
     int index =
         listaPilotosMasterEtapa.indexWhere((Pilotos) => Pilotos.nome == nome);
-    print(index);
     listaPilotosMasterEtapa.removeAt(index);
     update();
   }
@@ -99,10 +102,6 @@ class EtapaController extends GetxController {
         .indexWhere((Pilotos) => Pilotos.nome == nome);
     listaPilotosGraduadosEtapa.removeAt(index);
     update();
-  }
-
-  void addNome(String nome) {
-    nomeParametro.value = nome;
   }
 
 /*   void gravarEtapa(Etapa pEtapa) {
@@ -125,8 +124,8 @@ class EtapaController extends GetxController {
       pilotosGraduadosEtapa: nomesGraduados,
       pilotosMasterEtapa: nomesMaster,
     );
-    etapasInfo.add(etapas);
-    itemCount.value = etapasInfo.length;
+    listaEtapas.add(etapas);
+    itemCount.value = listaEtapas.length;
     existeEtapa.value = true;
 
     numeroEtapaController.clear();
@@ -136,9 +135,9 @@ class EtapaController extends GetxController {
   }
 
   void removerEtapa(int index) {
-    etapasInfo.removeAt(index);
-    itemCount.value = etapasInfo.length;
-    if (etapasInfo.isEmpty) {
+    listaEtapas.removeAt(index);
+    itemCount.value = listaEtapas.length;
+    if (listaEtapas.isEmpty) {
       existeEtapa.update((val) {
         false;
       });
@@ -146,13 +145,19 @@ class EtapaController extends GetxController {
   }
 
   void addIndex(int numeroEtapa) {
-    indexEtapa = numeroEtapa;
+    indexEtapa.value = numeroEtapa;
   }
 
   void updateIindex(var cardID) {
-    indexEtapa = etapasInfo[cardID].etapaNumero;
-    nMaster.value = etapasInfo[cardID].master;
-    nGraduados.value = etapasInfo[cardID].graduados;
+    indexEtapa.value = listaEtapas[cardID].etapaNumero;
+    nMaster.value = listaEtapas[cardID].master;
+    nGraduados.value = listaEtapas[cardID].graduados;
+  }
+
+  void updateIindexCorrida(var indexCorrida) {
+/*     indexCorrida = etapasInfo[indexCorrida].master;
+    nMaster.value = etapasInfo[indexCorrida].master;
+    nGraduados.value = etapasInfo[indexCorrida].graduados; */
   }
 
   void sortearBaterias() {

@@ -24,7 +24,7 @@ class _EtapaInfoState extends State<EtapaInfo> {
       ),
       body: Obx(() => etapaCtrl.existeEtapa.value
           ? ComEtapas(
-              etapas: etapaCtrl.etapasInfo,
+              etapas: etapaCtrl.listaEtapas,
             )
           : const SemEtapas()),
       floatingActionButton: FloatingActionButton(

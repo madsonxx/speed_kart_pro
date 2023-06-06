@@ -33,7 +33,7 @@ class HomeScreen extends GetView<EtapaController> {
             Expanded(
               child: Obx(
                 () => ListView.builder(
-                  itemCount: controller.etapasInfo.length,
+                  itemCount: controller.listaEtapas.length,
                   itemBuilder: ((context, index) {
                     return Padding(
                       padding: const EdgeInsets.only(
@@ -41,24 +41,26 @@ class HomeScreen extends GetView<EtapaController> {
                       child: Container(
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20),
-                            color: Colors.red.shade700),
+                            color: Colors.red.shade500),
                         child: ListTile(
                           onTap: () {
                             controller.updateIindex(index);
+                            print(controller
+                                .listaEtapas[index].pilotosMasterEtapa);
                             //controller.findIndex(index);
                             Get.toNamed(AppPages.cardEtapa);
                           },
                           leading: const Icon(
-                            Icons.sports_motorsports_sharp,
+                            Icons.sports_score,
                             size: 45,
                           ),
                           title: Text(
-                            'Etapa ${controller.etapasInfo[index].etapaNumero}',
+                            'Etapa ${controller.listaEtapas[index].etapaNumero}',
                             style: const TextStyle(
                                 fontSize: 20, fontWeight: FontWeight.bold),
                           ),
                           subtitle:
-                              Text('Data ${controller.etapasInfo[index].data}',
+                              Text('Data ${controller.listaEtapas[index].data}',
                                   style: const TextStyle(
                                     fontSize: 16,
                                   )),
@@ -69,8 +71,8 @@ class HomeScreen extends GetView<EtapaController> {
                             ),
                             onTap: () {
                               //EtapaController().removerEtapa(index);
-                              controller.etapasInfo.removeAt(index);
-                              if (controller.etapasInfo.isEmpty) {
+                              controller.listaEtapas.removeAt(index);
+                              if (controller.listaEtapas.isEmpty) {
                                 EtapaController().existeEtapa.value = false;
                               }
                             },
@@ -96,7 +98,9 @@ class HomeScreen extends GetView<EtapaController> {
             icon: Icon(Icons.leaderboard_rounded), label: 'Resultados'),
       ]),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => Get.toNamed('/addEtapa'),
+        backgroundColor: Colors.tealAccent,
+        foregroundColor: Colors.black,
+        onPressed: () => Get.toNamed(AppPages.addEtapa),
         child: const Icon(Icons.add),
       ),
     );
