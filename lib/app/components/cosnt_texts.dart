@@ -20,3 +20,8 @@ List posicoes = [
   'Decimo Nono',
   'Vigésimo'
 ];
+String textoInfo(int indexBateria, int indexCorrida) {
+  return 'Bateria $indexBateria, Corrida $indexCorrida';
+}
+
+List<int> points = [20, 16, 14, 12, 10, 8, 6, 4, 2, 1];

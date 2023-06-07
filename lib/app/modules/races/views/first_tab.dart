@@ -31,6 +31,8 @@ class FirstTab extends GetView<EtapaController> {
                         color: Colors.red.shade700),
                     child: ListTile(
                       onTap: () {
+                        controller.updateIndexBateria(index);
+                        controller.encontrarBateriaNumero(index);
                         Get.toNamed(AppPages.cardCorrida);
                       },
                       leading: const Icon(
@@ -59,7 +61,7 @@ class FirstTab extends GetView<EtapaController> {
               }),
             ),
           ),
-          Center(
+/*           Center(
             child: MaterialButton(
                 color: Colors.blue,
                 child: const Text(
@@ -67,7 +69,7 @@ class FirstTab extends GetView<EtapaController> {
                   style: TextStyle(color: Colors.white),
                 ),
                 onPressed: () {}),
-          ),
+          ), */
           Obx(
             () => controller.existemPilotos.value
                 ? Column(

@@ -44,7 +44,9 @@ class HomeScreen extends GetView<EtapaController> {
                             color: Colors.red.shade500),
                         child: ListTile(
                           onTap: () {
-                            controller.updateIindex(index);
+                            controller.encontrarEtapaNumero(index);
+                            controller.updateIndexEtapa(index);
+                            print(controller.indexEtapa);
                             print(controller
                                 .listaEtapas[index].pilotosMasterEtapa);
                             //controller.findIndex(index);

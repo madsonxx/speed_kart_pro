@@ -1,3 +1,4 @@
+import 'package:speed_kart_pro/app/modules/corrida.dart';
 import 'package:speed_kart_pro/app/modules/pilotos.dart';
 
 class Etapa {
@@ -7,6 +8,8 @@ class Etapa {
   late int graduados;
   late List<Pilotos> pilotosMasterEtapa;
   late List<Pilotos> pilotosGraduadosEtapa;
+  late List<Corrida> corridasMasterEtapa;
+  late List<Corrida> corridasGraduadosEtapa;
 
   Etapa(
       {required this.etapaNumero,
@@ -14,7 +17,9 @@ class Etapa {
       required this.graduados,
       required this.master,
       required this.pilotosMasterEtapa,
-      required this.pilotosGraduadosEtapa});
+      required this.pilotosGraduadosEtapa,
+      this.corridasMasterEtapa = const [],
+      this.corridasGraduadosEtapa = const []});
 
   @override
   String toString() {

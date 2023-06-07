@@ -17,7 +17,7 @@ class CardEtapa extends GetView<EtapaController> {
         length: 2,
         child: Scaffold(
           appBar: AppBar(
-            title: Center(child: Text('Etapa ${controller.indexEtapa}')),
+            title: Center(child: Text('Etapa ${controller.numeroEtapa}')),
           ),
           body: SingleChildScrollView(
             //clipBehavior: Clip.hardEdge,

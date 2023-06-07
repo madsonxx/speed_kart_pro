@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:speed_kart_pro/app/components/cosnt_texts.dart';
 import 'package:speed_kart_pro/app/modules/corrida.dart';
 import 'package:speed_kart_pro/app/modules/etapa.dart';
 import 'package:speed_kart_pro/app/modules/pilotos.dart';
@@ -33,9 +34,12 @@ class EtapaController extends GetxController {
   TextEditingController popUpNumeroParticipantesEtapa = TextEditingController();
 
   var existeEtapa = false.obs;
+
   var indexBateria = 0.obs;
   var indexEtapa = 0.obs;
   var indexCorrida = 0.obs;
+  var indexPiloto = 0.obs;
+
   var numeroEtapa = 0.obs;
   var numeroBateria = 0.obs;
 
@@ -153,8 +157,12 @@ class EtapaController extends GetxController {
     int index =
         listaEtapas.indexWhere((Etapa) => Etapa.etapaNumero == indexEtapa);
     listaEtapas[index].corridasMasterEtapa.add(Corrida(
-        corridaInfo: 'Bateria $indexBateria, Corrida $indexCorrida',
+        corridaInfo: textoInfo(indexBateria, indexCorrida),
         classificacao: nomes));
+  }
+
+  void adicionarPosicaoMaster(var indexEtapa, var idxPiloto, var posicao) {
+    listaEtapas[indexEtapa].pilotosMasterEtapa[idxPiloto].posicoes.add(posicao);
   }
 
   void updateIndexEtapa(int numeroEtapa) {
@@ -181,6 +189,12 @@ class EtapaController extends GetxController {
 
   void encontrarBateriaNumero(int nBateria) {
     numeroBateria.value = nBateria + 1;
+  }
+
+  void encontrarPiloto(var indexEtapa, var nomePiloto) {
+    indexPiloto.value = listaEtapas[indexEtapa]
+        .pilotosMasterEtapa
+        .indexOf(Pilotos(nome: nomePiloto));
   }
 /*   void findIndex(int etapaID) {
     indexCorrida.value =

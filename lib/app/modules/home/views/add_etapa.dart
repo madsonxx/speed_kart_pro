@@ -123,7 +123,7 @@ class AddEtapa extends GetView<EtapaController> {
                           style: TextStyle(color: Colors.white),
                         ),
                         onPressed: () {
-                          controller.addIndex(
+                          controller.updateIndexEtapa(
                               int.parse(controller.numeroEtapaController.text));
 
                           Get.toNamed(AppPages.addMaster);

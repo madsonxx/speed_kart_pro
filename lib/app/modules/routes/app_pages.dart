@@ -4,7 +4,6 @@ import 'package:speed_kart_pro/app/modules/home/bindings/home_bindings.dart';
 import 'package:speed_kart_pro/app/modules/home/views/add_etapa.dart';
 import 'package:speed_kart_pro/app/modules/home/views/add_etapa_graduados.dart';
 import 'package:speed_kart_pro/app/modules/home/views/add_piloto_master.dart';
-import 'package:speed_kart_pro/app/modules/home/views/controle_baterias.dart';
 import 'package:speed_kart_pro/app/modules/home/views/home_page.dart';
 import 'package:speed_kart_pro/app/modules/races/views/add_corrida.dart';
 
@@ -52,9 +51,9 @@ class AppPages {
         name: _Paths.ADDCORRIDA,
         page: () => const AddRaceMaster(),
         binding: HomeBinding()),
-    GetPage(
+    /* GetPage(
         name: _Paths.ADDBATERIAS,
         page: () => const AdicionarBaterias(),
-        binding: HomeBinding()),
+        binding: HomeBinding()), */
   ];
 }

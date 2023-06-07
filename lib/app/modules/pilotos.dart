@@ -1,9 +1,13 @@
 class Pilotos {
-  late String nome;
+  final String nome;
   late List<String> posicoes;
   int pontuacao;
 
-  Pilotos({required this.nome, this.pontuacao = 0, this.posicoes = const []});
+  Pilotos({
+    required this.nome,
+    this.pontuacao = 0,
+    this.posicoes = const [],
+  });
 
   @override
   String toString() {
