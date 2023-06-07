@@ -30,11 +30,14 @@ class EtapaController extends GetxController {
   TextEditingController nomesGraduados = TextEditingController();
   TextEditingController posController = TextEditingController();
 
+  TextEditingController popUpNumeroParticipantesEtapa = TextEditingController();
+
   var existeEtapa = false.obs;
-  //var indexCorrida = 0.obs;
+  var indexBateria = 0.obs;
   var indexEtapa = 0.obs;
   var indexCorrida = 0.obs;
-  //var indexEtapa = 0.obs;
+  var numeroEtapa = 0.obs;
+  var numeroBateria = 0.obs;
 
   late Etapa etapas;
   late Pilotos pilotos;
@@ -46,6 +49,7 @@ class EtapaController extends GetxController {
   var itemCount = 0.obs;
   var nMaster = 0.obs;
   var nGraduados = 0.obs;
+  var numeroParticipantesBateria = 0.obs;
 
   var existemPilotos = false.obs;
   var itemCountMaster = 0.obs;
@@ -144,26 +148,40 @@ class EtapaController extends GetxController {
     }
   }
 
-  void addIndex(int numeroEtapa) {
+  void adicionarCorridaMaster(
+      int indexEtapa, int indexBateria, int indexCorrida, List<String> nomes) {
+    int index =
+        listaEtapas.indexWhere((Etapa) => Etapa.etapaNumero == indexEtapa);
+    listaEtapas[index].corridasMasterEtapa.add(Corrida(
+        corridaInfo: 'Bateria $indexBateria, Corrida $indexCorrida',
+        classificacao: nomes));
+  }
+
+  void updateIndexEtapa(int numeroEtapa) {
     indexEtapa.value = numeroEtapa;
   }
 
-  void updateIindex(var cardID) {
-    indexEtapa.value = listaEtapas[cardID].etapaNumero;
+  void updateIndexBateria(int numeroBateria) {
+    indexBateria.value = numeroBateria;
+  }
+
+  void updateIindexCorrida(var idxCorrida) {
+    indexCorrida.value = idxCorrida;
+  }
+
+  void adicionarNumeroPilotosBateria(int nParticipantes) {
+    numeroParticipantesBateria.value = nParticipantes;
+  }
+
+  void encontrarEtapaNumero(var cardID) {
+    numeroEtapa.value = listaEtapas[cardID].etapaNumero;
     nMaster.value = listaEtapas[cardID].master;
     nGraduados.value = listaEtapas[cardID].graduados;
   }
 
-  void updateIindexCorrida(var indexCorrida) {
-/*     indexCorrida = etapasInfo[indexCorrida].master;
-    nMaster.value = etapasInfo[indexCorrida].master;
-    nGraduados.value = etapasInfo[indexCorrida].graduados; */
+  void encontrarBateriaNumero(int nBateria) {
+    numeroBateria.value = nBateria + 1;
   }
-
-  void sortearBaterias() {
-    //etapasInfo[indexEtapa].length nMaster.value
-  }
-
 /*   void findIndex(int etapaID) {
     indexCorrida.value =
         etapasInfo.indexWhere((Etapa) => Etapa.etapaNumero == '$etapaID');
